@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 import moe.ore.memory.ext.isDebugConsole
 import moe.ore.memory.ext.toast
-import moe.ore.memory.ui.activity.ConsoleActivity
 import kotlin.reflect.KClass
 
 open class BaseActivity: AppCompatActivity() {
@@ -15,10 +14,7 @@ open class BaseActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if (isDebugConsole) {
-            if(this !is ConsoleActivity) {
-                toast("Debug控制台模式")
-                startActivity(ConsoleActivity::class, true)
-            }
+
         }
 
 

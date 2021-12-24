@@ -9,3 +9,5 @@ dependencyResolutionManagement {
 rootProject.name = "Memory"
 include ':app'
 include ':root-shell'
+include ':app_process'
+include ':memory'

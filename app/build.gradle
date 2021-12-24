@@ -12,12 +12,6 @@ android {
         targetSdk 29
         versionCode 1
         versionName "1.0"
-
-        externalNativeBuild {
-            cmake {
-                cppFlags ''
-            }
-        }
     }
 
     buildTypes {
@@ -33,12 +27,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    externalNativeBuild {
-        cmake {
-            path file('src/main/cpp/CMakeLists.txt')
-            version '3.10.2'
-        }
-    }
     buildFeatures {
         viewBinding true
     }
@@ -52,5 +40,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0-alpha02'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
 
-    implementation project(":root-shell")
+    implementation project(":memory")
 }

@@ -20,6 +20,8 @@ class MainActivity : BaseActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        consolePrintln("是否初始化成功：" + MemoryTools.init(this)) // 初始化服务
+
         binding.killGG.setOnClickListener {
             MemoryTools.killGG()
         }
@@ -29,50 +31,50 @@ class MainActivity : BaseActivity() {
         }
 
         binding.getPidQq.setOnClickListener {
-            toast("Pid：" + MemoryTools.getProcessPid("com.tencent.mobileqq"))
+            consolePrintln("Pid：" + MemoryTools.getProcessPid("com.tencent.mobileqq"))
         }
 
         binding.qqState.setOnClickListener {
-            toast("State：" + MemoryTools.getProcessState("com.tencent.mobileqq"))
+            consolePrintln("State：" + MemoryTools.getProcessState("com.tencent.mobileqq"))
         }
 
         binding.setRange.setOnClickListener {
             MemoryTools.setMemoryRange(MemoryRange.A_ANONMYOUS)
-            toast("内存范围设置为A")
+            consolePrintln("内存范围设置为A")
         }
 
         binding.getRange.setOnClickListener {
-            toast("Range：" + MemoryTools.getMemoryRange())
+            consolePrintln("Range：" + MemoryTools.getMemoryRange())
         }
 
         binding.setApp.setOnClickListener {
             MemoryTools.selectAppByPackage("com.tencent.mobileqq")
-            toast("选择QQ主进程")
+            consolePrintln("选择QQ主进程")
         }
 
         binding.getApp.setOnClickListener {
-            toast("App：" + MemoryTools.getSelectApp())
+            consolePrintln("App：" + MemoryTools.getSelectApp())
         }
 
         binding.process.setOnClickListener {
             val builder = StringBuilder()
-            MemoryTools.getProcessList().also { toast(it.size.toString()) }.forEach {
-                builder.append("包名:${it.name}  名称:${it.processName}  PID:${it.pid}\n")
-            }
-            consolePrintln(builder.toString())
+            // MemoryTools.getProcessList().also { toast(it.size.toString()) }.forEach {
+            //    builder.append("包名:${it.name}  名称:${it.processName}  PID:${it.pid}\n")
+            //}
+            // consolePrintln(builder.toString())
         }
 
         binding.search.setOnClickListener {
-            val result = MemoryTools.searchMemory(SearchType.DWORD, "1")
-            consolePrintln("结果数量：$result")
+            //val result = MemoryTools.searchMemory(SearchType.DWORD, "1")
+            //consolePrintln("结果数量：$result")
 
         }
 
         binding.result.setOnClickListener {
-            val result = MemoryTools.getResult(0, 10)
-            result.forEach {
-                consolePrintln("Addr：${it.addr} ===> TAddr:${it.taddr}")
-            }
+            //val result = MemoryTools.getResult(0, 10)
+            //result.forEach {
+            //    consolePrintln("Addr：${it.addr} ===> TAddr:${it.taddr}")
+            //}
         }
 
         binding.out.setOnLongClickListener {
